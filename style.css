@@ -1,0 +1,171 @@
+body{
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    max-height: 100vh;
+    align-content: center;
+}
+.grid{
+    position: relative;
+    width: 500px;
+    height:500px;
+    border: 3px solid black;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.pelota{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: #d7e241;
+    border-radius: 50%;
+    animation-name: bote;
+    animation-duration: 9s;
+    border: 2px solid #d3db5a;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    overflow: hidden;
+    bottom: 0;
+}
+.pelota:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: transparent;
+    border: 3px solid #fff;
+    right: -65%;
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    /*anim*/transform: skewY(40deg)  ;
+    -webkit-transform: skewY(40deg);
+    -moz-transform: skewY(40deg);
+    -ms-transform: skewY(40deg);
+    -o-transform: skewY(40deg);
+    animation-name: lineasA;
+    animation-duration: 9s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.pelota:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: transparent;
+    border: 3px solid #ffffff;
+    left: -65%;
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    /*anim*/transform: skewY(40deg)    ;
+    -webkit-transform: skewY(40deg);
+    -moz-transform: skewY(40deg);
+    -ms-transform: skewY(40deg);
+    -o-transform: skewY(40deg);
+    animation-name: lineasB;
+    animation-duration: 9s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+
+
+}
+
+@keyframes bote {
+    0%{
+        bottom: 400px;
+        transform: rotate(0deg);
+        left:0;
+}
+    1s{
+        bottom: 0;
+        left: 200px;
+    }
+    2s{
+        left: 300px;
+        bottom: 400px;
+    }
+    2.8s{
+        left: 420px;
+        bottom: 10px;
+    }
+    3s{
+        left: 400px;
+        bottom: 0;
+    }
+    4s{
+        left:300px;
+        bottom: 400px;
+    }
+    5s{
+        left: 200px;
+        bottom: 0px;
+    }
+    5.8s{
+        left:100px;
+        bottom: 0;
+    }
+    6s{
+
+    }
+}
+@keyframes movimiento {
+    0% {
+        bottom: 300px;
+        transform: rotate(0deg);
+}
+    50%{
+        bottom: 0;
+    }
+    100%{
+        bottom: 300px;
+    }
+}
+
+
+@keyframes lineasA{
+    0%{
+        transform: skewY(-40deg)    ;
+        -webkit-transform: skewY(-40deg)    ;
+        -moz-transform: skewY(-40deg)    ;
+        -ms-transform: skewY(-40deg)    ;
+        -o-transform: skewY(-40deg)    ;
+}
+    50%{
+
+    }
+    100%{
+        transform: skewY(40deg)    ;
+        -webkit-transform: skewY(40deg);
+        -moz-transform: skewY(40deg);
+        -ms-transform: skewY(40deg);
+        -o-transform: skewY(40deg);
+}
+}
+@keyframes lineasB{
+    0%{
+        transform: skewY(-40deg)    ;
+        -webkit-transform: skewY(-40deg)    ;
+        -moz-transform: skewY(-40deg)    ;
+        -ms-transform: skewY(-40deg)    ;
+        -o-transform: skewY(-40deg)    ;
+}
+    50%{
+        
+    }
+    100%{
+        transform: skewY(40deg)    ;
+        -webkit-transform: skewY(40deg);
+        -moz-transform: skewY(40deg);
+        -ms-transform: skewY(40deg);
+        -o-transform: skewY(40deg);
+}
+}
