@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+body {
+  margin: 0;
+  top: 0;
+  padding: 0;
+}
+.container {
+  position: relative;
+  min-width: 100vw; /* Usamos metricas Viewport height y width para ajustar a la pantalla*/
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+[class^="strip_"] {
+  position: absolute;
+  width: 20%;
+  min-height: 100vh;
+  overflow: hidden;
+  
+}
+
+[class^="strip--cont"]:before {
+  content: ""; /*Imprimir contenido propio en pseudoObjects*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 2s;
+  z-index: 100; /*Profundidad eje Z HTML*/
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.1;
+  overflow: hidden;
+  /*Cambiar axis para la animación*/
+  transform-origin: center center;
+  /*Sesgar*/
+  transform: skew(30deg) scale(1) translate(0, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  -moz-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  -ms-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+[class^="strip--cont"]:hover:before {
+    opacity: 0.1;
+    transform: skew(0deg) scale(3) translate(0, 0);
+    -webkit-transform: skew(0deg) scale(3) translate(0, 0);
+    -moz-transform: skew(0deg) scale(3) translate(0, 0);
+    -ms-transform: skew(0deg) scale(3) translate(0, 0);
+    -o-transform: skew(0deg) scale(3) translate(0, 0);
+}
+[class^="strip-"] > h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+[class^="strip_"]:nth-child(1) {
+  left: 0vw; 
+}
+[class^="strip_"]:nth-child(2) {
+  left: 20vw;
+}
+[class^="strip_"]:nth-child(3) {
+  left: 40vw;
+}
+[class^="strip_"]:nth-child(4) {
+  left: 60vw;
+}
+[class^="strip_"]:nth-child(5) {
+  left: 80vw;
+}
+
+[class^="strip_"]:nth-child(1) > .strip--cont {
+  background-color: #244f75;
+  transform: translate3d(-100%, 0, 0);
+  /*Etiquetas de fisicas adaptadas al navegador (webkit => chrome, -moz- => Mozilla....*/
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  animation-name: stripe1;
+  /* Retraso */
+  animation-delay: 0.1s;
+  /* Duración */
+  animation-duration: 1s;
+  /* Mantener la posición final de la animación */
+  animation-fill-mode: forwards;
+}
+[class^="strip_"]:nth-child(2) > .strip--cont {
+  background-color: #60bfbf;
+  transform: translate3d(0, 100%,0);
+  animation-name: stripe2;
+  animation-delay: 0.2s;
+  animation-duration: 1s;
+  -webkit-transform: translate3d(0, 100%,0);
+  -moz-transform: translate3d(0, 100%,0);
+  -ms-transform: translate3d(0, 100%,0);
+  -o-transform: translate3d(0, 100%,0);
+  animation-fill-mode: forwards;
+}
+[class^="strip_"]:nth-child(3) > .strip--cont {
+  background-color: #8c4b7e;
+  animation-name: stripe3;
+  animation-delay: 0.3s;
+  animation-duration: 1s;
+  transform: translate3d(0, -100%,0);
+  -webkit-transform: translate3d(0, -100%,0);
+  -moz-transform: translate3d(0, -100%,0);
+  -ms-transform: translate3d(0, -100%,0);
+  -o-transform: translate3d(0, -100%,0);
+  animation-fill-mode: forwards;
+}
+[class^="strip_"]:nth-child(4) > .strip--cont {
+  background-color: #f8bb44;
+  transform: translate3d(0, 100%,0);
+  animation-name: stripe4;
+  
+  -webkit-transform: translate3d(0, 100%,0);
+  -moz-transform: translate3d(0, 100%,0);
+  -ms-transform: translate3d(0, 100%,0);
+  -o-transform: translate3d(0, 100%,0);
+  animation-delay: 0.4s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+[class^="strip_"]:nth-child(5) > .strip--cont {
+  background-color: #f24b4b;
+  transform: translate3d(100%,0,0);
+  animation-name: stripe5;
+  -webkit-transform: translate3d(100%,0,0);
+  -moz-transform: translate3d(100%,0,0);
+  -ms-transform: translate3d(100%,0,0);
+  -o-transform: translate3d(100%,0,0);
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  -webkit-transform: translate3d(100%,0,0);
+  animation-fill-mode: forwards;
+}
+.strip--cont {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  /*Ocultar contenido que sobresalga del container*/
+  overflow: hidden;
+}
+
+
+@keyframes stripe1 {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    -o-transform: translate3d(-100%, 0, 0);
+}
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+}
+}
+@keyframes stripe2 {
+  0% {
+    -webkit-transform: translate3d(0%, 100%, 0%);
+    transform: translate3d(0%, 100%, 0%);
+    -moz-transform: translate3d(0%, 100%, 0%);
+    -ms-transform: translate3d(0%, 100%, 0%);
+    -o-transform: translate3d(0%, 100%, 0%);
+}
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+}
+}
+@keyframes stripe3 {
+  0% {
+    transform: translate3d(0%, -100%,0%);
+    -webkit-transform: translate3d(0%, -100%,0%);
+    -moz-transform: translate3d(0%, -100%,0%);
+    -ms-transform: translate3d(0%, -100%,0%);
+    -o-transform: translate3d(0%, -100%,0%);
+}
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+}
+}
+@keyframes stripe4 {
+  0% {
+        transform: translate3d(0%, 100%, 0%);
+        -webkit-transform: translate3d(0%, 100%, 0%);
+        -moz-transform: translate3d(0%, 100%, 0%);
+        -ms-transform: translate3d(0%, 100%, 0%);
+        -o-transform: translate3d(0%, 100%, 0%);
+}
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+}
+}
+@keyframes stripe5 {
+  0% {
+    -webkit-transform: translate3d(100%, 0%, 0%);
+    transform: translate3d(100%, 0%, 0%);
+    -moz-transform: translate3d(100%, 0%, 0%);
+    -ms-transform: translate3d(100%, 0%, 0%);
+    -o-transform: translate3d(100%, 0%, 0%);
+}
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+}
+}
